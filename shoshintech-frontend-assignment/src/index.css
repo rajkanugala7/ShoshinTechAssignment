@@ -170,7 +170,7 @@ body {
 /* Base Styles for Desktop */
 .container {
   display: grid;
-  grid-template-columns: 8rem 1fr /* 3 columns for desktop */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
 }
 
 .card {
@@ -232,6 +232,6 @@ body {
 
 /* Dashboard Styles */
 .dashboard {
-  display: grid;
-  
+  display: flex;
+ 
 }

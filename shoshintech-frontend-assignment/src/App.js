@@ -14,13 +14,17 @@ function App() {
       <div className='container'>
                   
         <SideNavBar />
+
+        <div className='dashboard'>
         <div>
           <InfoCardContainer />
           
         </div>
         <div>
           <RecentActivity/>
-        </div>
+          </div>
+          
+          </div>
             </div>
     </div>
   );
