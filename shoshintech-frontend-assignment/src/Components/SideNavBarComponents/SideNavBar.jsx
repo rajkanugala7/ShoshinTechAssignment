@@ -16,7 +16,7 @@ const items2 = [
 export default function SideNavBar() {
     return (
         <div className="sidenavbar">
-            <h1 className="menuname">Vasitum</h1>
+            <h1 className="menuname companyname">Vasitum</h1>
 
             <Menu title={"MAIN MENU"} items={items1} />
 

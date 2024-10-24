@@ -2,6 +2,9 @@
 body {
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Prevent body scrolling */
 }
 
 .sidenavbar {
@@ -63,7 +66,7 @@ body {
   align-items: center;
   background-color: #333;
   position: relative;
-  height: 60px; /* Adjusted height for visibility */
+  height: 60px;
 }
 
 /* Logo Styling */
@@ -120,86 +123,19 @@ body {
   cursor: pointer;
 }
 
-/* Responsive Styling */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px; /* Match navbar height */
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    text-align: center;
-    padding: 10px 0;
-  }
-
-  .nav-links-mobile {
-    display: flex;
-  }
-
-  .mobile-menu-icon {
-    display: block;
-  }
-
-  .nav-links li {
-    margin: 15px 0;
-  }
-
-  .search-bar {
-    width: 100%;
-  }
-
-  .sidenavbar {
-    display: none;
-  }
-
-  .container {
-    grid-template-columns: 1fr; /* Single column for mobile */
-  }
-
-  .card {
-    margin-bottom: 20px;
-  }
-
-  .info-card-container {
-    grid-template-columns: 1fr; /* 1 card per row */
-  }
-}
-
-/* Base Styles for Desktop */
+/* Base Styles for Large Screens (Desktops) */
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+  grid-template-columns: 242px 1fr; /* 1st column fixed (5rem), 2nd column flexible (remaining space) */
+}
+
+.companyname {
+  padding-left: 1.5rem;
 }
 
 .card {
   padding: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Tablet View */
-@media screen and (max-width: 992px) {
-  .menuname {
-    display: none;
-  }
-
-  .title { /* Fixed typo from .tittle to .title */
-    font-size: 1rem;
-  }
-
-  .nav-item {
-    margin-left: 1rem;
-  }
-
-  .container {
-    display: grid;
-    grid-template-columns: 5rem 1fr; /* First column fixed, second flexible */
-  }
-
-  .info-card-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
-  }
 }
 
 /* Info Card Styles */
@@ -211,8 +147,12 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   margin: 10px;
-  flex: 1; /* Ensure cards take up available space */
-  min-width: 250px; /* Prevent cards from being too small */
+  flex: 1;
+  min-width: 150px;
+}
+
+.tittle {
+  padding: 1rem;
 }
 
 /* Hover Effect */
@@ -224,14 +164,151 @@ body {
 .info-card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 cards per row for desktop */
-  gap: 20px;
+  gap: 10px;
   padding: 20px;
-  max-width: 1200px; /* Limit the width of the container for larger screens */
-  margin: 0 auto; /* Center the container */
+  max-width: 900px;
+}
+
+.statscontainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.statscard {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin: 25px;
+  flex: 1;
+  min-width: 100px;
 }
 
 /* Dashboard Styles */
 .dashboard {
   display: flex;
+  overflow-y: auto; /* Allow scrolling */
+  width: fit-content;
  
+  height: calc(100vh - 60px); /* Full height minus navbar height */
+}
+
+.dashboard::-webkit-scrollbar {
+  display: none; /* Width of scrollbar */
+}
+
+
+.eventcard {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 12px 16px 12px 16px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  min-width: 387px;
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.schedule {
+  border: 1px solid #E0E0E0;
+  border-radius: 12px;
+  padding: 5px;
+  margin-left: 30px;
+}
+
+/* Tablet View */
+@media screen and (max-width: 1024px) {
+  .container {
+    grid-template-columns: 4rem 1fr; /* 1st column fixed (3rem), 2nd column flexible */
+  }
+  
+  .menuname {
+    display: none;
+  }
+  
+  .tittle {
+    font-size: 0.7rem;
+    padding-left: 1rem;
+  }
+
+  .info-card-container {
+    grid-template-columns: repeat(3, 1fr); /* 2 cards per row on tablet */
+  }
+
+  .dashboard {
+    display: grid;
+    flex-wrap: wrap;
+  }
+
+  .sidenavbar {
+    height: 100vh;
+  }
+}
+
+/* Mobile View */
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* Single column for mobile */
+  }
+
+  .info-card-container {
+    grid-template-columns: 1fr; /* 1 card per row on mobile */
+  }
+
+  .sidenavbar {
+    display: none; /* Hide side navbar on mobile */
+  }
+
+  .eventcard {
+    display: flex;
+    margin: 20px;
+    min-width: 310px;
+    min-height: 64px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+
+  .nav-links-mobile {
+    display: flex;
+  }
+
+  .dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    
+    overflow-y: auto; /* Allow scrolling on mobile */
+    height: calc(100vh - 60px); /* Full height minus navbar height */
+  }
+  
+
+  .statscontainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.recentacitvity{
+  background-color: #1B204A;
+  max-width: 427px;
+  max-height: 258px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 0.5rem;
 }
