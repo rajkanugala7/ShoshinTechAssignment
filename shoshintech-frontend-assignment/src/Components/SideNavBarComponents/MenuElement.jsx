@@ -1,8 +1,8 @@
 export default function MenuElement({icon, name}) {
     return (
         <div className="nav-item">
-            <span >{icon}</span>
-            <span className="menuname">{name }</span>
+            <span id={name}>{icon}</span>
+            <span className="menuname" id={name }>{name }</span>
         </div>
     )
 }

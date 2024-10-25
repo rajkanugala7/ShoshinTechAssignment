@@ -1,14 +1,14 @@
 import Event from "./Event";
 
-export default function Schedule({ events }) {
+export default function Schedule({ events,pin}) {
     return (
         <div className="schedule">
             <div className="header">
-                <h1>Announcement</h1>
+                <span >Announcement</span>
             </div>
             {
                 events.map((event, index) => (
-                    <Event key={index} eventName={event.name} time={event.time} />
+                    <Event key={index} eventName={event.name} time={event.time} pin={pin} />
                 ))
             }
         </div>

@@ -31,11 +31,11 @@ export default function Dashboard()
         <div className="dashboard">
            <div> <InfoCardContainer />
                 <StatsCardContainer />
-                 <Schedule events={events}/>
+                 <Schedule events={events} pin="1"/>
             </div>
-            <div>
+            <div className="recentDiv">
                 <RecentActivity />
-                <Schedule events={events}/>
+                <Schedule events={events}  />
                 </div>
         </div>
     )
